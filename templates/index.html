@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <h3 class="col"> Cash : {{ cash | usd}} </h3>
+        <h3 class="col"> Total : {{ total | usd}} </h3>
+    </div>
+    <table class="container-md">
+        <thead>
+            <tr>
+                <th class="p-2" scope="col">Stock Code</th>
+                <th class="p-2" scope="col">Shares</th>
+                <th class="p-2" scope="col">Current Price</th>
+                <th class="p-2" scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in shares %}
+                <tr>
+                    <th scope="row"> {{ stock['symbol'] }} </th>
+                    <td> {{ stock['SUM(shares)'] }} </td>
+                    <td> {{ stock['value'] | usd}} </td>
+                    <td> {{ stock['total'] | usd}} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

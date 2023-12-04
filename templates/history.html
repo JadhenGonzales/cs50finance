@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="container-md">
+        <thead>
+            <tr>
+                <th class="p-2" scope="col">Datetime</th>
+                <th class="p-2" scope="col">Type</th>
+                <th class="p-2" scope="col">Stock Code</th>
+                <th class="p-2" scope="col">Shares</th>
+                <th class="p-2" scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td> {{ transaction.datetime }} </td>
+                    <td> {{ transaction['type'] }} </td>
+                    <td> {{ transaction['symbol'] }} </td>
+                    <td> {{ transaction['shares']}} </td>
+                    <td> {{ transaction['value'] | usd}} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

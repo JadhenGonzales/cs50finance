@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ quoted_stock.name }}
+{% endblock %}
+
+{% block main %}
+    <div class="d-inline-flex">
+        <h1 class="p-2">{{ quoted_stock.name }}</h1>
+        <h1 class="p-2">{{ quoted_stock.price | usd}}</h1v>
+    </div>
+{% endblock %}
